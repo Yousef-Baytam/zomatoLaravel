@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
 use App\Models\Category;
+use App\Models\categories_has_restaurants;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,7 @@ class AdminController extends Controller
         $cat->save();
 
         return response()->json([
-            "status" => "Success"
+            "status" => "Success",
         ], 200);
     }
 
@@ -28,6 +29,11 @@ class AdminController extends Controller
         $restro->status = $request->status;
         $restro->city_id = $request->city_id;
         $restro->save();
+
+        $cat = new categories_has_restaurants;
+        $cat->restaurant_id = $restro->id;
+        $cat->category_id = $request->cat_id;
+        $cat->save();
 
         return response()->json([
             "status" => "Success"
