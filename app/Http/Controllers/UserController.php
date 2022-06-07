@@ -65,4 +65,18 @@ class UserController extends Controller
             "status" => "Success"
         ], 200);
     }
+
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->get();
+        if (Hash::check($request->password, $user[0]->password)) {
+            return response()->json([
+                "status" => "Success",
+                "user" => $user
+            ], 200);
+        }
+        return response()->json([
+            "status" => "Not Available",
+        ], 404);
+    }
 }

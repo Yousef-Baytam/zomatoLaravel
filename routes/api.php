@@ -20,5 +20,6 @@ Route::get('/reviews/{id?}', [UserController::class, 'getAllReviews']);
 Route::post('/add_user', [UserController::class, 'addUser']);
 Route::post('/update_user', [UserController::class, 'updateUser']);
 Route::post('/add_review', [UserController::class, 'addReview']);
+Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/restaurants/{id?}', [RestaurantController::class, 'getAllRestros']);
