@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
+            $table->integer('phone');
             $table->string('password');
-            $table->string('profile_pic');
+            $table->string('profile_pic')->nullable();
             $table->integer('user_type_id');
             $table->integer('city_id');
             $table->string('user_status');

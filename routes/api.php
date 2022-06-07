@@ -19,6 +19,7 @@ Route::post('/update_restaurant_status/{status}', [AdminController::class, 'upda
 Route::get('/reviews/{id?}', [UserController::class, 'getAllReviews']);
 Route::post('/add_user', [UserController::class, 'addUser']);
 Route::post('/update_user', [UserController::class, 'updateUser']);
+Route::post('/update_review', [UserController::class, 'updateReview']);
 Route::post('/add_review', [UserController::class, 'addReview']);
 Route::post('/login', [UserController::class, 'login']);
 

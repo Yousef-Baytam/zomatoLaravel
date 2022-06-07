@@ -32,6 +32,15 @@ class UserController extends Controller
         ], 200);
     }
 
+    public function updateReview(Request $request)
+    {
+        Review::where([['user_id', $request->user_id], ['restaurant_id', $request->restaurant_id]])->update(['rating' => $request->rating, 'review' => $request->review]);
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
     public function addReview(Request $request)
     {
         $review = new Review;
@@ -53,10 +62,11 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
         $user->profile_pic = $request->profile_pic;
         $user->user_type_id = 1;
-        $user->city_id = $request->city_id;
+        $user->city_id = $request->city_id ? $request->city_id : '1';
         $user->user_status = 'pending';
         $user->dob = $request->dob;
         $user->save();
