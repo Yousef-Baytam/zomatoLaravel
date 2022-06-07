@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\User;
 use App\Models\Review;
 use App\Models\Category;
 use App\Models\City;
@@ -38,6 +39,24 @@ class AdminController extends Controller
     public function updateReviewStatus(Request $request, $status)
     {
         $review = Review::where('id', $request->id)->update(['status' => $status]);
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
+    public function updateUserStatus(Request $request, $status)
+    {
+        $user = User::where('id', $request->id)->update(['status' => $status]);
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
+    public function updateRestaurantStatus(Request $request, $status)
+    {
+        $review = Restaurant::where('id', $request->id)->update(['status' => $status]);
 
         return response()->json([
             "status" => "Success",
