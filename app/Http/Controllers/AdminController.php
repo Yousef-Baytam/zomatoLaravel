@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Type;
 use App\Models\categories_has_restaurants;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,17 @@ class AdminController extends Controller
         $city = new City;
         $city->city_name = $request->city_name;
         $city->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
+    public function addType(Request $request)
+    {
+        $type = new Type;
+        $type->type = $request->type;
+        $type->save();
 
         return response()->json([
             "status" => "Success",
