@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Review;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,7 +53,7 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->profile_pic = $request->profile_pic;
         $user->user_type_id = 1;
         $user->city_id = $request->city_id;
