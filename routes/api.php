@@ -12,6 +12,7 @@ Route::post('/add_restro', [AdminController::class, 'addRestro']);
 Route::post('/add_category', [AdminController::class, 'addCategory']);
 Route::post('/add_city', [AdminController::class, 'addCity']);
 Route::post('/add_restro_type', [AdminController::class, 'addType']);
+Route::post('/update_review_status/{status}', [AdminController::class, 'updateReviewStatus']);
 
 Route::get('/reviews/{id?}', [UserController::class, 'getAllReviews']);
 Route::post('/add_user', [UserController::class, 'addUser']);

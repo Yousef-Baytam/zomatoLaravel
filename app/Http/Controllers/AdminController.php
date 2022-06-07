@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Review;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Type;
@@ -28,6 +29,15 @@ class AdminController extends Controller
         $city = new City;
         $city->city_name = $request->city_name;
         $city->save();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
+
+    public function updateReviewStatus(Request $request, $status)
+    {
+        $review = Review::where('id', $request->id)->update(['status' => $status]);
 
         return response()->json([
             "status" => "Success",
