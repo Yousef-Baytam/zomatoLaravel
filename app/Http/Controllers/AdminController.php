@@ -14,6 +14,20 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function getAllUsers($id = null)
+    {
+        if ($id) {
+            $user = User::find($id);
+        } else {
+            $user = User::all();
+        }
+
+        return response()->json([
+            "status" => "Success",
+            "restos" => $user
+        ], 200);
+    }
+
     public function addCategory(Request $request)
     {
         $cat = new Category;

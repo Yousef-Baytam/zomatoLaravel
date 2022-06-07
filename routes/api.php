@@ -7,7 +7,7 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\UserController;
 
 
-Route::get('/restaurants/{id?}', [RestaurantController::class, 'getAllRestros']);
+Route::get('/users/{id?}', [AdminController::class, 'getAllUsers']);
 Route::post('/add_restro', [AdminController::class, 'addRestro']);
 Route::post('/add_category', [AdminController::class, 'addCategory']);
 Route::post('/add_city', [AdminController::class, 'addCity']);
@@ -19,5 +19,6 @@ Route::post('/update_restaurant_status/{status}', [AdminController::class, 'upda
 Route::get('/reviews/{id?}', [UserController::class, 'getAllReviews']);
 Route::post('/add_user', [UserController::class, 'addUser']);
 Route::post('/update_user', [UserController::class, 'updateUser']);
-
 Route::post('/add_review', [UserController::class, 'addReview']);
+
+Route::get('/restaurants/{id?}', [RestaurantController::class, 'getAllRestros']);
