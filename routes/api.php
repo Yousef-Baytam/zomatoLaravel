@@ -8,3 +8,7 @@ use App\Http\Controllers\UserController;
 
 
 Route::post('/add_restro', [AdminController::class, 'addRestro']);
+
+Route::post('/add_user', [UserController::class, 'addUser']);
+
+Route::post('/add_review', [UserController::class, 'addReview']);
