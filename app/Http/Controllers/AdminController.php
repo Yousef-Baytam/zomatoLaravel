@@ -3,10 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function addCategory(Request $request)
+    {
+        $cat = new Category;
+        $cat->category = $request->category;
+        $cat->save();
+
+        return response()->json([
+            "status" => "Success"
+        ], 200);
+    }
+
     public function addRestro(Request $request)
     {
         $restro = new Restaurant;
