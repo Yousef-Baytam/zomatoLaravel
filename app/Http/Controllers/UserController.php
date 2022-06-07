@@ -8,6 +8,19 @@ use App\Models\Review;
 
 class UserController extends Controller
 {
+    public function getAllReviews($id = null)
+    {
+        if ($id) {
+            $reviews = Review::where('user_id', $id)->get();
+        } else {
+            $reviews = Review::all();
+        }
+
+        return response()->json([
+            "status" => "Success",
+            "reviews" => $reviews
+        ], 200);
+    }
     public function addReview(Request $request)
     {
         $review = new Review;

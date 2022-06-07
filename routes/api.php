@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 Route::get('/restaurants/{id?}', [RestaurantController::class, 'getAllRestros']);
 Route::post('/add_restro', [AdminController::class, 'addRestro']);
 
+Route::get('/reviews/{id?}', [UserController::class, 'getAllReviews']);
 Route::post('/add_user', [UserController::class, 'addUser']);
 
 Route::post('/add_review', [UserController::class, 'addReview']);
