@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('name');
             $table->String('description');
             $table->String('image');
-            $table->Boolean('status');
+            $table->String('status');
             $table->Integer('city_id');
             $table->timestamps();
         });

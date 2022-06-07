@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function addRestro(Request $request)
     {
-        $restro = new Restaurant();
+        $restro = new Restaurant;
         $restro->name = $request->name;
         $restro->description = $request->description;
         $restro->image = $request->image;
