@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Type;
+use App\Models\types_has_restaurants;
 use App\Models\categories_has_restaurants;
 use Illuminate\Http\Request;
 
@@ -58,6 +59,11 @@ class AdminController extends Controller
         $cat->restaurant_id = $restro->id;
         $cat->category_id = $request->cat_id;
         $cat->save();
+
+        $type = new types_has_restaurants;
+        $type->restaurants_id = $restro->id;
+        $type->types_id = $request->types_id;
+        $type->save();
 
         return response()->json([
             "status" => "Success"
