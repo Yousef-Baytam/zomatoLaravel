@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('rating')->default(1);
+            $table->text('review');
+            $table->Integer('user_id');
+            $table->Integer('restaurant_id');
+            $table->string('status');
             $table->timestamps();
         });
     }
